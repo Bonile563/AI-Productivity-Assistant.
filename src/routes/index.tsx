@@ -419,8 +419,8 @@ function Composer({
         )}
       </form>
       <p className="mx-auto mt-2 max-w-3xl text-[11px] text-muted-foreground">
-        Enter to send · Shift + Enter for a new line · Review AI output before sending it
-        onward.
+        Enter to send · Shift + Enter for a new line · AI can be wrong: verify facts and
+        anything marked [verify], and avoid pasting confidential or personal data.
       </p>
     </div>
   );

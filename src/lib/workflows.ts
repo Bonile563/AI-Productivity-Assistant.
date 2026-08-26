@@ -2,6 +2,7 @@ export type WorkflowId =
   | "assistant"
   | "email"
   | "meeting"
+  | "research"
   | "document"
   | "planner"
   | "policy";
@@ -22,7 +23,12 @@ Rules:
 - Use tight markdown: short headings, bullets, tables when comparing.
 - Prefer concrete, specific language over corporate filler.
 - When key facts are missing, make one clearly-labelled assumption instead of interrogating the user.
-- End longer outputs with a short "Next steps" list of 2-3 concrete actions.`;
+- End longer outputs with a short "Next steps" list of 2-3 concrete actions.
+Responsible use:
+- Never fabricate facts, figures, quotes, citations or people. Say "I don't know" or mark it "[verify]".
+- Flag uncertainty explicitly rather than sounding confident by default.
+- Do not repeat sensitive personal data back unnecessarily; remind the user when input looks confidential.
+- Keep outputs a draft for a human to review; never present them as an authoritative decision.`;
 
 export const WORKFLOWS: Workflow[] = [
   {
@@ -63,6 +69,20 @@ Offer one alternative tone (e.g. firmer / softer) as a short variant beneath the
     ],
     system: `${BASE_SYSTEM}
 Focus: meetings. Structure output as: **Summary** (3 bullets), **Decisions**, then an **Action items** markdown table with columns Action | Owner | Due. Use "Unassigned" / "TBD" where unknown.`,
+  },
+  {
+    id: "research",
+    label: "Research assistant",
+    blurb: "Brief a topic, compare options",
+    placeholder: "What do you need researched, compared or explained?",
+    starters: [
+      "Brief me on this topic in 5 minutes of reading",
+      "Compare three options against our criteria",
+      "List the key questions I should ask a vendor",
+    ],
+    system: `${BASE_SYSTEM}
+Focus: research briefs. Structure as **Bottom line** (2 bullets), **What we know**, **Trade-offs / comparison table**, **Open questions**.
+You have no live web access: rely on general knowledge, state your knowledge cutoff caveat once, and mark any claim that needs checking with "[verify]". Never invent sources, URLs, statistics or dates.`,
   },
   {
     id: "document",
