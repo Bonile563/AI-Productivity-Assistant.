@@ -16,7 +16,6 @@ import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { WORKFLOWS, getWorkflow, type WorkflowId } from "@/lib/workflows";
 
@@ -113,7 +112,7 @@ function Home() {
               </span>
             </div>
 
-            <ScrollArea className="flex-1" viewportRef={scrollRef}>
+            <div ref={scrollRef} className="flex-1 overflow-y-auto">
               <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-5 py-6">
                 {messages.length === 0 ? (
                   <EmptyState
@@ -144,7 +143,7 @@ function Home() {
                 )}
                 {status === "submitted" && <ThinkingRow />}
               </div>
-            </ScrollArea>
+            </div>
 
             <Composer
               value={input}
