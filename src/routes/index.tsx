@@ -135,7 +135,9 @@ function Home() {
                         !busy &&
                         index === messages.length - 1 &&
                         message.role === "assistant"
-                          ? () => void regenerate()
+                          ? () => {
+                              void regenerate();
+                            }
                           : undefined
                       }
                     />
@@ -286,8 +288,8 @@ function MessageBubble({
 }: {
   role: string;
   text: string;
-  streaming?: boolean;
-  onRetry?: () => void;
+  streaming?: boolean | undefined;
+  onRetry?: (() => void) | undefined;
 }) {
   const [copied, setCopied] = useState(false);
 

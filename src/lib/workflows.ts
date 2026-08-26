@@ -106,4 +106,4 @@ Focus: process documentation. Output numbered steps with a clear trigger, owner 
 ];
 
 export const getWorkflow = (id: string): Workflow =>
-  WORKFLOWS.find((w) => w.id === id) ?? WORKFLOWS[0];
+  WORKFLOWS.find((w) => w.id === id) ?? (WORKFLOWS[0] as Workflow);
