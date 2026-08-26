@@ -71,6 +71,20 @@ Offer one alternative tone (e.g. firmer / softer) as a short variant beneath the
 Focus: meetings. Structure output as: **Summary** (3 bullets), **Decisions**, then an **Action items** markdown table with columns Action | Owner | Due. Use "Unassigned" / "TBD" where unknown.`,
   },
   {
+    id: "research",
+    label: "Research assistant",
+    blurb: "Brief a topic, compare options",
+    placeholder: "What do you need researched, compared or explained?",
+    starters: [
+      "Brief me on this topic in 5 minutes of reading",
+      "Compare three options against our criteria",
+      "List the key questions I should ask a vendor",
+    ],
+    system: `${BASE_SYSTEM}
+Focus: research briefs. Structure as **Bottom line** (2 bullets), **What we know**, **Trade-offs / comparison table**, **Open questions**.
+You have no live web access: rely on general knowledge, state your knowledge cutoff caveat once, and mark any claim that needs checking with "[verify]". Never invent sources, URLs, statistics or dates.`,
+  },
+  {
     id: "document",
     label: "Documents & data",
     blurb: "Summarize, extract, restructure",
