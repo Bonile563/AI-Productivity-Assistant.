@@ -2,6 +2,7 @@ export type WorkflowId =
   | "assistant"
   | "email"
   | "meeting"
+  | "research"
   | "document"
   | "planner"
   | "policy";
